@@ -10,10 +10,10 @@ public class ProjectTryCatch {
 
         try {
             System.out.println("Digite o dividendo valor");
-            firstValue = scannerLocal.nextInt();
+            firstValue = scannerLocal.nextFloat();
 
             System.out.println("Digite o divisor valor");
-            secondValue = scannerLocal.nextInt();
+            secondValue = scannerLocal.nextFloat();
 
             if(secondValue == 0){
                 throw new ArithmeticException();

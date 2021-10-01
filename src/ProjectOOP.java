@@ -67,5 +67,7 @@ public class ProjectOOP {
         increment = incrementer(increment);
         increment = incrementer(increment);
 
+        Theory.GitTags();
+
     }
 }
