@@ -6,6 +6,7 @@ public class ProjectTryCatch {
         float firstValue;
         float secondValue;
         float result;
+        boolean retry = true;
         Scanner scannerLocal = new Scanner(System.in);
 
         try {
@@ -15,25 +16,28 @@ public class ProjectTryCatch {
             System.out.println("Digite o divisor valor");
             secondValue = scannerLocal.nextFloat();
 
-            if(secondValue == 0){
+            if (secondValue == 0) {
                 throw new ArithmeticException();
             }
 
 
-
-            result = firstValue/secondValue;
+            result = firstValue / secondValue;
             System.out.println("O resultado é: " + result);
 
-            System.exit(0);
-
-        } catch (InputMismatchException exception){
+        } catch (InputMismatchException exception) {
+            retry = true;
             System.out.println("Erro!");
             System.out.println("Use apenas numeros Racionais ou Inteiros!");
 
-        } catch (ArithmeticException exception){
+        } catch (ArithmeticException exception) { //unchecked
             System.out.println("Divisior não pode ser zero!");
-        } finally {
+        }
+        //Exemplo de catch de 2 exeções. Suportado a partir do java SE 7;
+        /*catch (TipeOfExeptionOne|TipeOfExeptionTwo ex){
+            System.out.println("Mesmo tratamento para ambas as exceções");
+        }*/ finally {
             System.out.println("Teste");
         }
+
     }
 }
