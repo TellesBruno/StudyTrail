@@ -45,11 +45,40 @@ public class Theory {
                 "conflitos é necessário que eles sejam corrigidos antes de prosseguir com a integração");
     }
 
+    public static void ThisStatic(){
+        System.out.println("A palavra chave \"this\" não pode ser usada em contesto estático pois faz referencia a " +
+                "instancia do objeto e java não permite que variáveis não-estaticas sejam usada em métodos estáticos");
+    }
+
+    public static void AbstractStatic(){
+        System.out.println("Métodos abstratos não podem receber a propriedade static ");
+    }
+
     public static void Checksum(){
         System.out.println("** Checksum é um código usado para facilitar a verificação da integridade dos dados ou para " +
                 "verificar alterações dos dados, pois a função que gera o checksum cria resultados consideravelmente " +
                 "diferentes para alterações minímas nos dados.");
         System.out.println("** O checksum de cada commit pode ser obtido através do comando \"$ git log\"");
+    }
+
+    public static void OOPpillars(){
+        System.out.println("Abstração: Representa o conceito que é usado para criar o objeto. É subdividido em: ");
+        System.out.println("    Identidade que representa a ideia de objeto que queremos representar, ex: Uma Televisão;");
+        System.out.println("    Propriedades que representam as características do objeto, tipo o tamanho da TV, se é uma " +
+                "smart TV, o tipo de sistema de som que ela possui;");
+        System.out.println("    Métodos que representam as ações do objeto, como aumenta e diminuir o som, trocar de canal " +
+                "ligar e desligar.");
+        System.out.println("Encapsulamento: É usado para elevar o nível de segurança da aplicação, pois não permite o acesso " +
+                "direto as propriedades do objeto, mas mantêm a capacidade de edição/leitura dessas propriedades pelos métodos " +
+                "getters e setters de cada objeto.");
+        System.out.println("Herança: É usada para diminuir a repetição de código, permitindo com que um objeto \"filho\" receba " +
+                "propriedade de um objeto \"pai\", e ele por sua vez pode receber características de um objeto \"avô\". Ex: " +
+                "Um cachorro (objeto filho) possui características de um mamífero (objeto pai) e este por sua vez possui " +
+                "características de um animal (objeto avô).");
+        System.out.println("Polimorfismo: É a capacidade de ajustar os métodos do objeto pai para encaixá-los nos objetos " +
+                "filhos. Ex: Todos os animais comem, mas alguns só comem plantas e frutas enquanto outros comem carne, " +
+                "ambos compartilham a ação comer(), mas a \"implementação\" é diferente.");
+
     }
 
     public static void main(String[] args) {
