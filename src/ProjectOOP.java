@@ -10,50 +10,41 @@ public class ProjectOOP {
     }
 
     public static void main(String[] args) {
-        Car mostMileage = new Car("","","", 0f);
-        Car lesserMileage  = new Car("","","", 0f);
+        Car mostMileage = new Car("","","",0f,"",0,"","");
+        Car lesserMileage  = new Car("","","",0f,"",0,"","");
 
         int increment = 0;
 
-        Car[] veicles = new Car[3];
-        veicles[0] = new Car("Volkswagen", "Fusca", "abc1234", 50725.7f);
-        veicles[1] = new Car("Fiat", "147", "omn1234", 80495.7f);
-        veicles[2] = new Car("Ford", "Chevette", "xyz1234", 68465.7f);
+        Car[] cars = new Car[3];
+        cars[0] = new Car("abc", "cba","abc1234", 84136.4f, "blue", 2,"FWD", "Sedan");
+        cars[1] = new Car("def", "fed", "def5678", 65651.1f, "red", 2, "RWD", "muscle");
+        cars[2] = new Car("xyz", "zyx", "xtz9876", 56870.9f, "silver", 4, "AWD","SUV");
 
         ProjectOOP.separator();
 
-//        lesserMileage = veicles[0];
-//        for(int i = 0; i < veicles.length; i++){
-        for (Car veicle:veicles
+        //sobrecarga
+        Car.myCar(cars[0].getAll());
+        Car.myCar(cars[0].getBrand(), cars[0].getModel(), cars[0].getPlate(), cars[0].getMileage());
+        Car.myCar(cars[1].getAll());
+
+        lesserMileage = cars[0];
+        for (Car car:cars
              ) {
-//            if(mostMileage.getMileage() < veicles[i].getMileage()){
-            if(mostMileage.getMileage() < veicle.getMileage()){
-//                mostMileage.setMileage(veicles[i].getMileage());
-                mostMileage.setMileage(veicle.getMileage());
-                mostMileage.setModel(veicle.getModel());
-                mostMileage.setBrand(veicle.getBrand());
-                mostMileage.setPlate(veicle.getPlate());
+            if(mostMileage.getMileage() < car.getMileage()){
+                mostMileage.setMileage(car.getMileage());
+                mostMileage.setModel(car.getModel());
+                mostMileage.setBrand(car.getBrand());
+                mostMileage.setPlate(car.getPlate());
             }
-            if(lesserMileage.getMileage() > veicle.getMileage()){
-                lesserMileage.setMileage(veicle.getMileage());
-                lesserMileage.setModel(veicle.getModel());
-                lesserMileage.setBrand(veicle.getBrand());
-                lesserMileage.setPlate(veicle.getPlate());
+            if(lesserMileage.getMileage() > car.getMileage()){
+                lesserMileage.setMileage(car.getMileage());
+                lesserMileage.setModel(car.getModel());
+                lesserMileage.setBrand(car.getBrand());
+                lesserMileage.setPlate(car.getPlate());
             }
 
-//            switch (condição){
-//                case 1:
-//                    tratamento
-//                    break;
-//                case 2:
-//                    tratamento
-//                    break;
-//            }
-
-            System.out.println(veicle.getModel());
+            System.out.println(car.getModel());
         }
-
-
 
         ProjectOOP.separator();
 
@@ -66,6 +57,5 @@ public class ProjectOOP {
         increment = incrementer(increment);
         increment = incrementer(increment);
         increment = incrementer(increment);
-
     }
 }
