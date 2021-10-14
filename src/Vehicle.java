@@ -23,7 +23,7 @@ public abstract class Vehicle {
     }
 
     String getPlate(){
-        return (model);
+        return (plate);
     }
     void  setPlate(String newPlate){
         plate = newPlate;
