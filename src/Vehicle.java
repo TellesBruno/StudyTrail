@@ -52,12 +52,12 @@ public abstract class Vehicle {
         color = newColor;
     }
 
-    public static void myCar(List myCar){
-        System.out.println("1 - Meu carro: " + myCar);
+    public static void myVehicle(List myVehicle){
+        System.out.println("1 - Meu veiculo: " + myVehicle);
     }
 
-    public static void myCar(String carBrand, String carModel, String carPlate, float carMileage){
-        System.out.println("2 - Meu carro: ["+carBrand+", "+carModel+", "+carPlate+", "+carMileage+"]");
+    public static void myVehicle(String vehicleBrand, String vehicleModel, String vehiclePlate, float vehicleMileage){
+        System.out.println("2 - Meu Veiculo: ["+vehicleBrand+", "+vehicleModel+", "+vehiclePlate+", "+vehicleMileage+"]");
     }
 
 }
