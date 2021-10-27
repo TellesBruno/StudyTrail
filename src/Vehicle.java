@@ -52,6 +52,13 @@ public abstract class Vehicle {
         color = newColor;
     }
 
+    void foward(){ System.out.println("Indo para frente");}
+    void backward(){System.out.println("Indo para trás");}
+    void turnLeft(){System.out.println("Virando para esquerda");}
+    void turnRight(){System.out.println("Virando para direita");}
+
+
+
     public static void myVehicle(List myVehicle){
         System.out.println("1 - Meu veiculo: " + myVehicle);
     }

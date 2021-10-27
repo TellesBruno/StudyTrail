@@ -72,9 +72,9 @@ public class Theory {
                 "direto as propriedades do objeto, mas mantêm a capacidade de edição/leitura dessas propriedades pelos métodos " +
                 "getters e setters de cada objeto.");
         System.out.println("Herança: É usada para diminuir a repetição de código, permitindo com que um objeto \"filho\" receba " +
-                "propriedade de um objeto \"pai\", e ele por sua vez pode receber características de um objeto \"avô\". Ex: " +
-                "Um cachorro (objeto filho) possui características de um mamífero (objeto pai) e este por sua vez possui " +
-                "características de um animal (objeto avô).");
+                "propriedades de um objeto \"pai\", e ele por sua vez pode receber propriedades de um objeto \"avô\". Ex: " +
+                "Um cachorro (objeto filho) possui propriedades de um mamífero (objeto pai) e este por sua vez possui " +
+                "propriedades de um animal (objeto avô).");
         System.out.println("Polimorfismo: É a capacidade de ajustar os métodos do objeto pai para encaixá-los nos objetos " +
                 "filhos. Ex: Todos os animais comem, mas alguns só comem plantas e frutas enquanto outros comem carne, " +
                 "ambos compartilham a ação comer(), mas a \"implementação\" é diferente.");

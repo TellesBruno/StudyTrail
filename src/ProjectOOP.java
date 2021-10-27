@@ -20,8 +20,8 @@ public class ProjectOOP {
 
         Car[] cars = new Car[3];
         //imutável
-        cars[0] = new Car("abc", "cba","abc1234", 84136.4f, "blue", 2,"FWD", "Sedan");
-        cars[1] = new Car("def", "fed", "def5678", 65651.1f, "red", 2, "RWD", "muscle");
+        cars[0] = new Car("abc", "cba","abc1234", 84136.4f, "blue", 4,"FWD", "Sedan");
+        cars[1] = new Car("def", "fed", "def5678", 65651.1f, "red", 2, "RWD", "Muscle");
         cars[2] = new Car("xyz", "zyx", "xtz9876", 56870.9f, "silver", 4, "AWD","SUV");
 
         ProjectOOP.separator();
@@ -31,7 +31,7 @@ public class ProjectOOP {
         Car.myVehicle(cars[0].getBrand(), cars[0].getModel(), cars[0].getPlate(), cars[0].getMileage());
         Car.myVehicle(cars[1].getAll());
 
-        lesserMileage = cars[0];
+        lesserMileage.setMileage(cars[0].getMileage());
         for (Car car:cars
              ) {
             if(mostMileage.getMileage() < car.getMileage()){
@@ -40,7 +40,7 @@ public class ProjectOOP {
                 mostMileage.setBrand(car.getBrand());
                 mostMileage.setPlate(car.getPlate());
             }
-            if(lesserMileage.getMileage() > car.getMileage()){
+            if(lesserMileage.getMileage() >= car.getMileage()){
                 lesserMileage.setMileage(car.getMileage());
                 lesserMileage.setModel(car.getModel());
                 lesserMileage.setBrand(car.getBrand());
