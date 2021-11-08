@@ -1,5 +1,7 @@
 package studytrail.sprint2;
 
+import java.util.Objects;
+
 public class People {
     private String name;
     private String cpf;
@@ -27,5 +29,18 @@ public class People {
 
     public String toString(){
         return "Nome: " + this.name + "\nCPF: " + this.cpf;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        People people = (People) o;
+        return name.equals(people.name) && cpf.equals(people.cpf);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, cpf);
     }
 }

@@ -7,9 +7,11 @@ import java.util.List;
 
 public class ListJava {
     public static void main(String[] args) {
-        List<Car> cars = new ArrayList();
+        List<Car> cars = new ArrayList<>();
 
-        List<People> peoples = new ArrayList();
+        List<People> peoples = new ArrayList<>();
+
+        List<Integer> integers = new ArrayList<>();
 
         cars.add(new Car("abc", "cba","abc1234", 84136.4f, "blue", 4,"FWD", "Sedan"));
         cars.add(new Car("def", "fed", "def5678", 65651.1f, "red", 2, "RWD", "Muscle"));
@@ -22,9 +24,27 @@ public class ListJava {
         peoples.add(new People("Maria", "456"));
         peoples.add(new People("José", "789"));
 
+        peoples.add(new People("Maria", "456"));
+
+        System.out.println(peoples.get(1).equals(peoples.get(3)));
+
+        peoples.remove(new People("José", "789"));
+
         for (Car car : cars) {
             System.out.println(car.getBrand());
         }
+
+        for (People people : peoples) {
+            System.out.println(people.getName());
+        }
         System.out.println(peoples.get(1).getName());
+
+        for (int i = 0; i < 90000000; i++) {
+            integers.add(i);
+        }
+
+        for (Integer integer : integers) {
+            System.out.println(integer);
+        }
     }
 }
