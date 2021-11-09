@@ -1,14 +1,39 @@
 package studytrail.sprint2;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class SetJava {
     public static void main(String[] args) {
         Set<People> peoples = new HashSet<People>();
-        Set heterogeneous = new HashSet();
+        Set heterogeneous = new HashSet<>();
         People guest = new People("Ana", "123");
-        Set<People> lotsOfPeople = new HashSet<People>();
+        Set<People> lotsOfPeople = new HashSet<>();
+
+        Set<String> names = new HashSet<>();
+        Set<String> names2 = new LinkedHashSet<>();
+        Set<String> names3 = new TreeSet<>();
+        Set<Integer> numbers = new TreeSet<>();
+
+        names.add("Maria");
+        names.add("Ana");
+        names.add("Joao");
+        names.add("Carlos");
+
+        names2.add("Maria");
+        names2.add("Ana");
+        names2.add("Joao");
+        names2.add("Carlos");
+
+        names3.add("Maria");
+        names3.add("Ana");
+        names3.add("Joao");
+        names3.add("Carlos");
+
+        numbers.add(2);
+        numbers.add(1);
+        numbers.add(4);
+        numbers.add(3);
+        numbers.add(5);
 
         peoples.add(guest);
         peoples.add(new People("Marcelo", "456"));
@@ -18,9 +43,18 @@ public class SetJava {
         peoples.add(null);
         peoples.add(null);
 
-        for (int i = 0; i < 1000000; i++) {
-            lotsOfPeople.add(new People("Nome "+i, "CPF: "+i));
-        }
+        Iterator<People> peopleIterator = peoples.iterator();
+
+        System.out.println("=============================");
+        System.out.println(peopleIterator.next());
+        System.out.println("=============================");
+        System.out.println(peopleIterator.next());
+        System.out.println("=============================");
+        System.out.println(peopleIterator.next());
+
+//        for (int i = 0; i < 1000000; i++) {
+//            lotsOfPeople.add(new People("Nome "+i, "CPF: "+i));
+//        }
 
         heterogeneous.add(new People("Maria", "123")); //continuar a parte de implementação raw
         heterogeneous.add("João");
@@ -28,12 +62,12 @@ public class SetJava {
         heterogeneous.add(14862.0f);
         heterogeneous.add(7985);
 
+        System.out.println("=============================");
         for (People people : peoples) {
             System.out.println(people);
         }
         
         System.out.println("=============================");
-
         for (Object obj : heterogeneous) {
             System.out.println(obj);
         }
@@ -42,11 +76,45 @@ public class SetJava {
             System.out.println(people);
         }
 
-        for (int i = 0; i < 500000; i++) {
-            lotsOfPeople.remove(new People("Nome "+i, "CPF: "+i));
+//        for (int i = 0; i < 500000; i++) {
+//            lotsOfPeople.remove(new People("Nome "+i, "CPF: "+i));
+//        }
+//        for (People people : lotsOfPeople) {
+//            System.out.println(people);
+//        }
+
+        System.out.println("=============================");
+        for (String name : names) {
+            System.out.println(name);
         }
-        for (People people : lotsOfPeople) {
-            System.out.println(people);
+
+        System.out.println("=============================");
+        for (String name : names2) {
+            System.out.println(name);
+        }
+
+        names2.remove("Maria");
+
+        System.out.println("=============================");
+        for (String name : names2) {
+            System.out.println(name);
+        }
+
+//        names2.add("Maria");
+//
+//        System.out.println("=============================");
+//        for (String name : names2) {
+//            System.out.println(name);
+//        }
+
+        System.out.println("=============================");
+        for (String name : names3) {
+            System.out.println(name);
+        }
+
+        System.out.println("=============================");
+        for (Integer number : numbers) {
+            System.out.println(number);
         }
     }
 }
