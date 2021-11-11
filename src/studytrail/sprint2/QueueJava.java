@@ -40,7 +40,7 @@ public class QueueJava {
         try {
             System.out.println("Remove: " + fila.remove());
         } catch (Exception e) {
-            System.out.println("Erro: "+e);
+            System.out.println("Erro Remove: "+e);
         }
         System.out.println("Poll: "+fila.poll());
     }

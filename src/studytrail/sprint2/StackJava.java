@@ -31,7 +31,7 @@ public class StackJava {
         try {
             System.out.println("Pop: " + stack.pop());
         } catch (Exception e) {
-            System.out.println("Erro: " + e);
+            System.out.println("Erro Pop: " + e);
         }
     }
 }
