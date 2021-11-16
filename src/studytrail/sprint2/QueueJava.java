@@ -31,9 +31,9 @@ public class QueueJava {
         try {
             System.out.println("Element: " + fila.element());
         } catch (Exception e) {
-            System.out.println("Erro: "+e);
+            System.out.println("Erro Element: "+e);
         }
-        System.out.println("Peek: "+fila.peek());
+        System.out.println("Peek Element: "+fila.peek());
 
         System.out.println("=============================");
 

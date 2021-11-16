@@ -39,12 +39,12 @@ public class ListJava {
         }
         System.out.println(peoples.get(1).getName());
 
-        for (int i = 0; i < 90000000; i++) {
-            integers.add(i);
-        }
-
-        for (Integer integer : integers) {
-            System.out.println(integer);
-        }
+//        for (int i = 0; i < 90000000; i++) {
+//            integers.add(i);
+//        }
+//
+//        for (Integer integer : integers) {
+//            System.out.println(integer);
+//        }
     }
 }

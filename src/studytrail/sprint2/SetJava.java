@@ -12,7 +12,7 @@ public class SetJava {
         Set<String> names = new HashSet<>();
         Set<String> names2 = new LinkedHashSet<>();
         Set<String> names3 = new TreeSet<>();
-        Set<Integer> numbers = new TreeSet<>();
+        SortedSet<Integer> numbers = new TreeSet<>();
 
         names.add("Maria");
         names.add("Ana");
@@ -56,11 +56,11 @@ public class SetJava {
 //            lotsOfPeople.add(new People("Nome "+i, "CPF: "+i));
 //        }
 
-        heterogeneous.add(new People("Maria", "123")); //continuar a parte de implementação raw
+        heterogeneous.add(new People("Maria", "123"));
         heterogeneous.add("João");
         heterogeneous.add(null);
         heterogeneous.add(14862.0f);
-        heterogeneous.add(7985);
+        heterogeneous.add(7985); int integer = 157;
 
         System.out.println("=============================");
         for (People people : peoples) {
@@ -116,5 +116,11 @@ public class SetJava {
         for (Integer number : numbers) {
             System.out.println(number);
         }
+        System.out.println("Menor: "+numbers.first());
+        System.out.println("Maior: "+numbers.last());
+
+        System.out.println("SubSet: "+numbers.subSet(2, 4));
+        System.out.println("HeadSet: "+numbers.headSet(4));
+        System.out.println("TailSet: "+numbers.tailSet(3));
     }
 }
