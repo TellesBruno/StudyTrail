@@ -4,21 +4,21 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Bike extends Vehicle{
-    private int CC;
-    private boolean cargoPod;
-    protected boolean directEdit = false;
+    private Integer CC;
+    private Boolean cargoPod;
+    protected Boolean directEdit = false;
 
-    protected Bike(String brand, String model, String plate, float mileage, String color, int CC, boolean cargoPod){
+    protected Bike(String brand, String model, String plate, Float mileage, String color, Integer CC, Boolean cargoPod){
         this.setAll(brand, model, plate, mileage, color, CC, cargoPod);
     }
 
-    public int getCC() { return CC; }
-    public void setCC(int CC) { this.CC = CC; }
+    public Integer getCC() { return CC; }
+    public void setCC(Integer CC) { this.CC = CC; }
 
-    public boolean getCargoPod(){ return cargoPod; }
+    public Boolean getCargoPod(){ return cargoPod; }
     public void setCargoPod(boolean cargoPod) { this.cargoPod = cargoPod; }
 
-    public void setAll(String brand, String model, String plate, float mileage, String color, int CC, boolean cargoPod) {
+    public void setAll(String brand, String model, String plate, Float mileage, String color, Integer CC, Boolean cargoPod) {
         this.setAll(brand, model, plate, mileage, color);
         this.setCC(CC);
         this.setCargoPod(cargoPod);

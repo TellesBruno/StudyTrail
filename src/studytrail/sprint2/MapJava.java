@@ -11,6 +11,18 @@ public class MapJava {
         People[] people = new People[3];
         People guest = new People("João", "123");
 
+        SortedMap<Integer, String> sortedMap = new TreeMap<>();
+
+        Comparator<Car> carComparator = new Comparator<Car>() {
+            public int compare(Car car1, Car car2) {
+                return car1.getMileage().compareTo(car2.getMileage());
+            }
+        };
+        SortedMap<Car, String> sortedMapCars = new TreeMap<>(carComparator);
+
+        Map<Car, People> map = new HashMap<>();
+        //Map<Car,People> map = new Hashtable<>();
+
         cars[0] = new Car("Mercedes", "cba","abc1234", 84136.4f, "blue", 4,"FWD", "Sedan");
         cars[1] = new Car("Ford", "fed", "def5678", 65651.1f, "red", 2, "RWD", "Muscle");
         cars[2] = new Car("Fiat", "zyx", "xtz9876", 56870.9f, "silver", 4, "AWD","SUV");
@@ -20,10 +32,16 @@ public class MapJava {
         people[1] = new People("Maria", "456");
         people[2] = new People("José", "789");
 
+        sortedMap.put(2, people[0].getName());
+        sortedMap.put(3, people[2].getName());
+        sortedMap.put(4, people[1].getName());
+        sortedMap.put(5, people[1].getName());
+        sortedMap.put(1, people[0].getName());
 
-
-        Map<Car, People> map = new HashMap<>();
-        //Map<Car,People> map = new Hashtable<>();
+        sortedMapCars.put(cars[0], "João");
+        sortedMapCars.put(cars[1], "Maria");
+        sortedMapCars.put(cars[2], "José");
+        sortedMapCars.put(cars[3], "Paulo");
 
         map.put(cars[0], people[0]);
         map.put(cars[1], people[2]);
@@ -72,12 +90,6 @@ public class MapJava {
             System.out.println("==============================");
         }
 
-        SortedMap<Integer, String> sortedMap = new TreeMap<>();
-        sortedMap.put(2, people[0].getName());
-        sortedMap.put(3, people[2].getName());
-        sortedMap.put(4, people[1].getName());
-        sortedMap.put(5, people[1].getName());
-        sortedMap.put(1, people[0].getName());
         System.out.println(sortedMap);
 //        sortedMap.remove(2);
 //        System.out.println(sortedMap);
@@ -90,5 +102,14 @@ public class MapJava {
         System.out.println("SubMap: "+sortedMap.subMap(2, 4));
         System.out.println("HeadMap: "+sortedMap.headMap(3));
         System.out.println("TailMap: "+sortedMap.tailMap(3));
+
+        System.out.println("==============================");
+
+        for (SortedMap.Entry<Car, String> entry: sortedMapCars.entrySet()) {
+            System.out.print("[Car Brand: "+entry.getKey().getBrand()+", ");
+            System.out.print("Car Model: "+entry.getKey().getModel()+", ");
+            System.out.print("Car Mileage: "+entry.getKey().getMileage()+", ");
+            System.out.println("Owner: "+entry.getValue()+"]");
+        }
     }
 }

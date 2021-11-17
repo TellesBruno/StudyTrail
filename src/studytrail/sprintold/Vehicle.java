@@ -7,7 +7,7 @@ public abstract class Vehicle {
     private String brand;
     private String model;
     private String plate;
-    private float mileage;
+    private Float mileage;
     private String color;
 
     public String getBrand(){
@@ -31,10 +31,10 @@ public abstract class Vehicle {
         plate = newPlate;
     }
 
-    public float getMileage(){
+    public Float getMileage(){
         return (mileage);
     }
-    public void setMileage(float newMileage){
+    public void setMileage(Float newMileage){
         mileage = newMileage;
     }
 
@@ -46,7 +46,7 @@ public abstract class Vehicle {
         return Arrays.asList(brand, model, plate, mileage);
     }
 
-    public void setAll(String newBrand, String newModel, String newPlate, float newMileage, String newColor){
+    public void setAll(String newBrand, String newModel, String newPlate, Float newMileage, String newColor){
         brand = newBrand;
         model = newModel;
         plate = newPlate;
@@ -65,7 +65,7 @@ public abstract class Vehicle {
         System.out.println("1 - Meu veiculo: " + myVehicle);
     }
 
-    public static void myVehicle(String vehicleBrand, String vehicleModel, String vehiclePlate, float vehicleMileage){//sobrecarga
+    public static void myVehicle(String vehicleBrand, String vehicleModel, String vehiclePlate, Float vehicleMileage){//sobrecarga
         System.out.println("2 - Meu Veiculo: ["+vehicleBrand+", "+vehicleModel+", "+vehiclePlate+", "+vehicleMileage+"]");
     }
 
