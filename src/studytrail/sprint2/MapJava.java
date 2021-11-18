@@ -20,8 +20,8 @@ public class MapJava {
         };
         SortedMap<Car, String> sortedMapCars = new TreeMap<>(carComparator);
 
-        Map<Car, People> map = new HashMap<>();
-        //Map<Car,People> map = new Hashtable<>();
+        //Map<Car, People> map = new HashMap<>();
+        Map<Car,People> map = new Hashtable<>();
 
         cars[0] = new Car("Mercedes", "cba","abc1234", 84136.4f, "blue", 4,"FWD", "Sedan");
         cars[1] = new Car("Ford", "fed", "def5678", 65651.1f, "red", 2, "RWD", "Muscle");
@@ -47,10 +47,10 @@ public class MapJava {
         map.put(cars[1], people[2]);
         map.put(cars[2], people[1]);
         map.put(cars[3], people[1]);
-        map.put(cars[3], null);
-        map.put(cars[2], null);
-        map.put(null, people[0]);
-        map.put(null, people[2]);
+//        map.put(cars[3], null);
+//        map.put(cars[2], null);
+//        map.put(null, people[0]);
+//        map.put(null, people[2]);
 
         System.out.println("==============================");
 
@@ -67,9 +67,9 @@ public class MapJava {
         Integer b = 0;
         System.out.println(a.equals(b));
 
-        People p = guest;
+        People p1 = guest;
         People p2 = guest;
-        System.out.println(p.equals(p2));
+        System.out.println(p1.equals(p2));
 
         System.out.println(guest.equals(people[0]));
 

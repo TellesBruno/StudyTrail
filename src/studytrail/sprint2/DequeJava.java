@@ -6,7 +6,7 @@ import java.util.Deque;
 public class DequeJava {
     public static void main(String[] args) {
 
-        //FilaDeque();
+        FilaDeque();
         //PilhaDeque();
         //OutroDeque();
     }

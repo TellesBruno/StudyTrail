@@ -31,13 +31,13 @@ public class People {
         return "Nome: " + this.name + "\nCPF: " + this.cpf;
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || this.getClass() != o.getClass()) return false;
-//        People people = (People) o;
-//        return this.name.equals(people.name) && this.cpf.equals(people.cpf);
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || this.getClass() != o.getClass()) return false;
+        People people = (People) o;
+        return this.name.equals(people.name) && this.cpf.equals(people.cpf);
+    }
 
     @Override
     public int hashCode() {

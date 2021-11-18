@@ -4,7 +4,7 @@ import java.util.*;
 
 public class SetJava {
     public static void main(String[] args) {
-        Set<People> peoples = new HashSet<People>();
+        Set<People> peoples = new HashSet<>();
         Set heterogeneous = new HashSet<>();
         People guest = new People("Ana", "123");
         Set<People> lotsOfPeople = new HashSet<>();
