@@ -6,13 +6,13 @@ public class ListaBenchmarkJava {
     public static void main(String[] args) {
          int runs = 10;
 
-         List<String> listaArrayList = new ArrayList<>();
+         ArrayList<String> listaArrayList = new ArrayList<>();
          long ArrayListTime = 0;
          long ArrayListTimeMedian = 0;
          long ArrayListTimeRemove = 0;
          long ArrayListTimeRemoveMedian = 0;
 
-         List<String> listaLinkedList = new LinkedList<>();
+         LinkedList<String> listaLinkedList = new LinkedList<>();
          long LinkedListTime = 0;
          long LinkedListTimeMedian = 0;
          long LinkedListTimeRemove = 0;
@@ -35,6 +35,7 @@ public class ListaBenchmarkJava {
              ArrayListTimeRemove = (endTime - startTime);
              System.out.println("ArrayListTimeRemove: " + (ArrayListTimeRemove / 1000.0) + " seconds");
              ArrayListTimeRemoveMedian += ArrayListTimeRemove;
+             listaArrayList.clear();
          }
          ArrayListTimeMedian = ArrayListTimeMedian / runs;
          ArrayListTimeRemoveMedian = ArrayListTimeRemoveMedian / runs;
@@ -54,6 +55,7 @@ public class ListaBenchmarkJava {
              System.out.println("LinkedListTime: " + (LinkedListTime / 1000.0) + " seconds");
              LinkedListTimeMedian += LinkedListTime;
              startTime = System.currentTimeMillis();
+
              for (int j = 0; j < 500000; j++) {
                  listaLinkedList.remove(""+j);
              }
@@ -61,6 +63,7 @@ public class ListaBenchmarkJava {
              LinkedListTimeRemove = (endTime - startTime);
              System.out.println("LinkedListTimeRemove: " + (LinkedListTimeRemove / 1000.0) + " seconds");
              LinkedListTimeRemoveMedian += LinkedListTimeRemove;
+             listaLinkedList.clear();
          }
          LinkedListTimeMedian = LinkedListTimeMedian / runs;
          LinkedListTimeRemoveMedian = LinkedListTimeRemoveMedian / runs;
