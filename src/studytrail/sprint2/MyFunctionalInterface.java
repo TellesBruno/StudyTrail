@@ -11,4 +11,12 @@ public interface MyFunctionalInterface {
     public static String funcStatic() {
         return "Funciona tbm!";
     }
+
+    public static String testPrivate() {
+        return funcPrivate();
+    }
+
+    private static String funcPrivate() {
+        return "Funciona privado tbm!";
+    }
 }

@@ -2,7 +2,7 @@ package studytrail.sprint2.Benchmarks;
 
 import java.util.*;
 
-public class FilaBenchmarkJava {
+public class QueueBenchmarkJava {
     public static void main(String[] args) {
 
         int runs = 10;

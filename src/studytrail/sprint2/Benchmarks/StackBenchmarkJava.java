@@ -2,7 +2,7 @@ package studytrail.sprint2.Benchmarks;
 
 import java.util.*;
 
-public class PilhaBenchmarkJava {
+public class StackBenchmarkJava {
     public static void main(String[] args) {
         int runs = 10;
         Stack<String> pilha = new Stack<>();
