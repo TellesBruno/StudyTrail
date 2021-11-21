@@ -21,7 +21,8 @@ public class FeaturesJavaEight {
 
         //Method References
         MyFunctionalInterface myMethodRef = FeaturesJavaEight::referenceMethod;
-        System.out.println(myMethodRef.funcDefault());
+        System.out.println("\n"+myMethodRef.funcDefault());
+        System.out.println(myMethodRef.concatenaString("Maria", "Silva")+"\n");
 
         //Streams
         Stream<String> stream = Stream.of("João", "Maria", "José", "Paulo");
