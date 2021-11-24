@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class FeaturesJavaNine {
     public static void main(String[] args) {
@@ -15,9 +16,19 @@ public class FeaturesJavaNine {
 
         //Factory methods
         List<String> list = List.of("a", "b", "c");
-        System.out.println(new ArrayList<>(list));
+        System.out.println(list);
         Map<String, String> map = Map.of("a", "b", "c", "d");
         System.out.println(map);
+
+        String value = "d";
+
+        try {
+            list.add(value);
+        } catch (UnsupportedOperationException e) {
+            System.out.println("UnsupportedOperationException");
+            System.out.println("Operação de adição ou remoção não pode ser realizada!");
+            System.out.println(list);
+        }
 
         //Try With Resources
         try (Scanner scanner = new Scanner(new File("resources/test.txt"))) {
