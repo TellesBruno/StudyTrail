@@ -7,6 +7,7 @@ public class Sprint2Java {
         People people = new People("Ana", "123");
         People people2 = new People("João", "456");
         People people3 = new People("Ana", "123");
+        People people4 = null;
         Set<People> peopleList = Set.of(people, people2, new People("Maria", "789"));
         Optional<People> optionalPeople = Optional.empty();
 
