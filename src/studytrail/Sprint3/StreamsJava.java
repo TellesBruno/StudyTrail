@@ -5,7 +5,9 @@ import studytrail.sprint2.People;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -66,9 +68,28 @@ public class StreamsJava {
 
         //collect
         List<Integer> collectStream = Stream.of(1,2,3,4).map(value -> value*value).collect(Collectors.toList());
-        System.out.println(collectStream.get(0));
+        System.out.println(collectStream.get(3));
 
-        //
+        //FindAny and findFirst
+        Stream.of(1,2,3,4,5,6).findAny().ifPresent(println);
+        Stream.of(1,2,3,4,5,6).findFirst().ifPresent(println);
+
+        //iterate and generate
+        Supplier<Double> supplier = Math::random;
+        Stream.generate(supplier).limit(10).forEach(println);
+        Stream.iterate(0, n -> n + 2).limit(10).forEach(println);
+
+        //max and min
+        Stream.of(1,2,3,4,5,6).max(Integer::compareTo).ifPresent(println);
+        Stream.of(1,2,3,4,5,6).min(Integer::compareTo).ifPresent(println);
+
+        //reduce
+        System.out.println(Stream.of(1,2,3,4,5,6).reduce(0, Integer::sum));
+        System.out.println(Stream.of("Olá ", "bom ", "dia", "!").reduce("String única: ", String::concat));
+
+        //sorted
+        Stream.of(9,4,8,7,1,3,5,2,0,6).sorted(Integer::compareTo).forEach(print);
+        flatNameList.stream().sorted().forEach(println);
 
 //        //paralelismo???
 //        for (int i = 0; i < 10; i++) {

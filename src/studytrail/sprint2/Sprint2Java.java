@@ -1,6 +1,7 @@
 package studytrail.sprint2;
 
 import java.util.*;
+import java.util.function.Supplier;
 
 public class Sprint2Java {
     public static void main(String[] args) {
@@ -22,7 +23,10 @@ public class Sprint2Java {
         System.out.println(optionalPeople);
         optionalPeople = Optional.of(people);
         System.out.println(optionalPeople);
-        optionalPeople = Optional.ofNullable(searshPeople("456", peopleList));
+
+        Supplier<Optional<People>> peopleSupplier = () -> Optional.of(new People("Name", "000"));
+
+        optionalPeople = Optional.ofNullable(searshPeople("456", peopleList)).or(peopleSupplier);
         System.out.println(optionalPeople);
         optionalPeople = Optional
                 .ofNullable(searshPeopleByName("Ana", peopleList))
