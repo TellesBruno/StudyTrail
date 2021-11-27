@@ -60,47 +60,74 @@ public class StreamsJava {
         //flatMapStream.forEach(System.out::println);
         System.out.println(flatNameList);
 
+        System.out.println("\n=======================");
+
+
         //allMatch and anyMatch
         System.out.println("All Match: "+nameList
                 .stream().allMatch(a -> Objects.equals(a, "Ana")));
         System.out.println("Any Match: "+nameList
                 .stream().anyMatch(a -> Objects.equals(a, "Ana")));
 
+        System.out.println("\n=======================");
+
+
         //collect
         List<Integer> collectStream = Stream.of(1,2,3,4).map(value -> value*value).collect(Collectors.toList());
         System.out.println(collectStream.get(3));
 
+        System.out.println("\n=======================");
+
         //FindAny and findFirst
         Stream.of(1,2,3,4,5,6).findAny().ifPresent(println);
         Stream.of(1,2,3,4,5,6).findFirst().ifPresent(println);
+
+        System.out.println("\n=======================");
 
         //iterate and generate
         Supplier<Double> supplier = Math::random;
         Stream.generate(supplier).limit(10).forEach(println);
         Stream.iterate(0, n -> n + 2).limit(10).forEach(println);
 
+        System.out.println("\n=======================");
+
         //max and min
         Stream.of(1,2,3,4,5,6).max(Integer::compareTo).ifPresent(println);
         Stream.of(1,2,3,4,5,6).min(Integer::compareTo).ifPresent(println);
+
+        System.out.println("\n=======================");
 
         //reduce
         System.out.println(Stream.of(1,2,3,4,5,6).reduce(0, Integer::sum));
         System.out.println(Stream.of("Olá ", "bom ", "dia", "!").reduce("String única: ", String::concat));
 
+        System.out.println("\n=======================");
+
         //sorted
         Stream.of(9,4,8,7,1,3,5,2,0,6).sorted(Integer::compareTo).forEach(print);
         flatNameList.stream().sorted().forEach(println);
 
-//        //paralelismo???
-//        for (int i = 0; i < 10; i++) {
-//            list1.add(i);
-//            list2.add(i);
-//        }
-//        list1.parallelStream().forEach((i) -> {
-//            System.out.println("Lista 1: "+i);
-//        });
-//        list2.parallelStream().forEach((i) -> {
-//            System.out.println("Lista 2: "+i);
-//        });
+        System.out.println("\n=======================");
+
+        //parallel Stream como eu queria ter feito do começo:
+        for (int i = 0; i < 1000; i++) {
+            list1.add(i);
+            list2.add(i);
+        }
+        parallerStreamWithThread(list1, "Lista 1: ");
+        parallerStreamWithThread(list2, "Lista 2: ");
+        parallerStreamWithThread(list1, "Lista 3: ");
+        parallerStreamWithThread(list2, "Lista 4: ");
+        parallerStreamWithThread(list1, "Lista 5: ");
+        parallerStreamWithThread(list2, "Lista 6: ");
+    }
+
+    public static void parallerStreamWithThread(List<Integer> list, String message){
+        Thread thread = new Thread(() -> {
+            list.parallelStream().forEach(i -> {
+                System.out.println(message+i);
+            });
+        });
+        thread.start();
     }
 }
