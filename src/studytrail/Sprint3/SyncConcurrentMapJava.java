@@ -3,9 +3,8 @@ package studytrail.Sprint3;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CountDownLatch;
 
-public class ConcurrentMapJava {
+public class SyncConcurrentMapJava {
     public static void main(String[] args) throws InterruptedException {
         ConcurrentHashMap<Integer, String> map = new ConcurrentHashMap<>();
         ConcurrentHashMap<Integer, String> mapLots = new ConcurrentHashMap<>();
@@ -30,31 +29,33 @@ public class ConcurrentMapJava {
         Runnable r5 = removeMap(mapNormal);
         Runnable r6 = getMap(mapNormal);
 
-//        new Thread(r2).start();
-//        new Thread(r3).start();
-//        new Thread(r1).start();
-//
+    //        new Thread(r2).start();
+    //        new Thread(r3).start();
+    //        new Thread(r1).start();
+    //
         new Thread(lots1).start();
         new Thread(lots2).start();
         new Thread(lots3).start();
 
-//        new Thread(r4).start();
-//        new Thread(r5).start();
-//
-//        Thread threadR6 = new Thread(r6);
-//        threadR6.start();
-//
-//        threadR6.join();
-//        new Thread(r6).start();
+    //        new Thread(r4).start();
+    //        new Thread(r5).start();
+    //
+    //        Thread threadR6 = new Thread(r6);
+    //        threadR6.start();
+    //
+    //        threadR6.join();
+    //        new Thread(r6).start();
 
-    }
+}
 
     public static Runnable removeMap(ConcurrentHashMap<Integer, String> map, Integer key) {
         return () -> {
             try {
+                synchronized (map) {
                     if (map.get(key) != null) {
                         System.out.println("Removing " + map.remove(key));
                     }
+                }
             } catch (Exception e) {
                 System.out.println("Key not found");
             }
@@ -64,8 +65,10 @@ public class ConcurrentMapJava {
     public static Runnable putMap(ConcurrentHashMap<Integer, String> map, Integer key, String value) {
         return () -> {
             try {
-                System.out.println("Putting " + value);
-                map.put(key, value);
+                synchronized (map) {
+                    System.out.println("Putting " + value);
+                    map.put(key, value);
+                }
             } catch (Exception e) {
                 System.out.println("Value not added");
             }
@@ -75,7 +78,9 @@ public class ConcurrentMapJava {
     public static Runnable getMap(ConcurrentHashMap<Integer, String> map, Integer key) {
         return () -> {
             try {
-                System.out.println("Getting " + map.get(key));
+                synchronized (map) {
+                    System.out.println("Getting " + map.get(key));
+                }
             } catch (Exception e) {
                 System.out.println("Key not found");
             }
@@ -85,9 +90,11 @@ public class ConcurrentMapJava {
     public static Runnable removeLots(ConcurrentHashMap<Integer, String> map) {
         return () -> {
             try {
-                for (int i = 0; i < 100; i++) {
-                    if (map.get(i) != null) {
-                        System.out.println("Removing " + map.remove(i));
+                synchronized (map) {
+                    for (int i = 0; i < 100; i++) {
+                        if (map.get(i) != null) {
+                            System.out.println("Removing " + map.remove(i));
+                        }
                     }
                 }
             } catch (Exception e) {
@@ -99,9 +106,11 @@ public class ConcurrentMapJava {
     public static Runnable addLots(ConcurrentHashMap<Integer, String> map) {
         return () -> {
             try {
-                for (int i = 0; i < 100; i++) {
-                    System.out.println("Putting " + i);
-                    map.put(i, "Value: "+i);
+                synchronized (map) {
+                    for (int i = 0; i < 100; i++) {
+                        System.out.println("Putting " + i);
+                        map.put(i, "Value: "+i);
+                    }
                 }
             } catch (Exception e) {
                 System.out.println("Error: " + e);
@@ -112,8 +121,10 @@ public class ConcurrentMapJava {
     public static Runnable getLots(ConcurrentHashMap<Integer, String> map) {
         return () -> {
             try {
-                for (int i = 0; i < 100; i++) {
-                    System.out.println("Getting " + map.get(i));
+                synchronized (map) {
+                    for (int i = 0; i < 100; i++) {
+                        System.out.println("Getting " + map.get(i));
+                    }
                 }
             } catch (Exception e) {
                 System.out.println("Error: " + e);
@@ -124,9 +135,11 @@ public class ConcurrentMapJava {
     public static Runnable removeMap(Map<Integer, String> map) {
         return () -> {
             try {
-                for (int i = 0; i < 100; i++) {
-                    if (map.get(i) != null) {
-                        System.out.println("Removing " + map.remove(i));
+                synchronized (map) {
+                    for (int i = 0; i < 100; i++) {
+                        if (map.get(i) != null) {
+                            System.out.println("Removing " + map.remove(i));
+                        }
                     }
                 }
             } catch (Exception e) {
@@ -138,9 +151,11 @@ public class ConcurrentMapJava {
     public static Runnable addMap(Map<Integer, String> map) {
         return () -> {
             try {
-                for (int i = 0; i < 100; i++) {
-                    System.out.println("Putting " + i);
-                    map.put(i, "Value: "+i);
+                synchronized (map) {
+                    for (int i = 0; i < 100; i++) {
+                        System.out.println("Putting " + i);
+                        map.put(i, "Value: " + i);
+                    }
                 }
             } catch (Exception e) {
                 System.out.println("Error: " + e);
@@ -151,8 +166,10 @@ public class ConcurrentMapJava {
     public static Runnable getMap(Map<Integer, String> map) {
         return () -> {
             try {
-                for (int i = 0; i < 100; i++) {
-                    System.out.println("Getting " + map.get(i));
+                synchronized (map) {
+                    for (int i = 0; i < 100; i++) {
+                        System.out.println("Getting " + map.get(i));
+                    }
                 }
             } catch (Exception e) {
                 System.out.println("Error: " + e);

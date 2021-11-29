@@ -16,7 +16,7 @@ public class Wildcards {
 
         ClasseGenericaFilha<Integer> classeGenericaFilha = new ClasseGenericaFilha<>(10, 123);
 
-        List<Employer> employers = List.of(
+        List<? extends People> employers = List.of(
                 new Employer("João", "123", 1234),
                 new Employer("Maria", "465", 4567),
                 new Employer("Ana", "890", 9876));

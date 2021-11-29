@@ -79,7 +79,7 @@ public class StreamsJava {
         System.out.println("\n=======================");
 
         //FindAny and findFirst
-        Stream.of(1,2,3,4,5,6).findAny().ifPresent(println);
+        Stream.of(1,2,3,4,5,6).parallel().findAny().ifPresent(println);
         Stream.of(1,2,3,4,5,6).findFirst().ifPresent(println);
 
         System.out.println("\n=======================");
